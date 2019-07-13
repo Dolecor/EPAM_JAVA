@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 
 
-public class JPS extends Algorithm {
+public class JPS implements Algorithm {
 
     private Graph graph;
     private HashMap<Pair<String, String>, ArrayList<Vertex>> cache;
