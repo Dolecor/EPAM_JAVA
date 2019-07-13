@@ -60,4 +60,11 @@ public class Graph {
         }
         return res;
     }
+
+    public List<Pair<Vertex, Float>> getAdjVertices(String idSrc)
+    {
+        return vertices.get(new Vertex(idSrc));
+    }
+
+    
 }
