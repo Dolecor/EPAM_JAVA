@@ -15,6 +15,6 @@ public class App {
     public static void main(String[] args) {
 
         Logger logger = LoggerFactory.getLogger(App.class);
-        logger.debug("Debug is working");
+        logger.debug("Logger is working");
     }
 }
