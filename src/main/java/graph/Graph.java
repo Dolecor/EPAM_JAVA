@@ -75,9 +75,14 @@ public class Graph {
         return getWeight(vSrc, vDest);
     }
 
+    public List<Pair<Vertex, Float>> getAdjVertices(Vertex vSrc)
+    {
+        return vertices.get(vSrc);
+    }
+
     public List<Pair<Vertex, Float>> getAdjVertices(String idSrc)
     {
-        return vertices.get(new Vertex(idSrc));
+        return getAdjVertices(new Vertex(idSrc));
     }
 
 }
