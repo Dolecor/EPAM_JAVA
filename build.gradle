@@ -27,8 +27,14 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 	
-	compileOnly 'org.projectlombok:lombok:1.18.4'
-    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+	compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.25'
+	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+	compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+	compile group: 'ch.qos.logback', name: 'logback-access', version: '1.2.3'
+	
+	compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
 }
 
 application {
