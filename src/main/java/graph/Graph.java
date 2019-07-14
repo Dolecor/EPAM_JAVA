@@ -66,5 +66,4 @@ public class Graph {
         return vertices.get(new Vertex(idSrc));
     }
 
-
 }
