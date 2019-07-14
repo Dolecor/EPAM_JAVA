@@ -30,34 +30,40 @@ public class Graph {
         vertices.remove(rmV);
     }
 
-    public void setWeight(String idSrc, String idDist, Float weight)
+    public void setWeight(String idSrc, String idDest, Float weight)
     {
         Vertex vSrc = new Vertex(idSrc);
-        Vertex vDist = new Vertex(idDist);
+        Vertex vDest = new Vertex(idDest);
         List<Pair<Vertex, Float>> pL = vertices.get(vSrc);
         boolean hasVTo = false;
         for(Pair<Vertex, Float> p : pL){
-            if (p.getKey().equals(vDist)) {
+            if (p.getKey().equals(vDest)) {
                 hasVTo = true;
                 pL.remove(p);
-                pL.add(new Pair<>(new Vertex(idDist), weight));
+                pL.add(new Pair<>(new Vertex(idDest), weight));
             }
         }
         if(!hasVTo){
-            pL.add(new Pair<>(new Vertex(idDist), weight));
+            pL.add(new Pair<>(new Vertex(idDest), weight));
         }
     }
 
-    public float getWeight(String idSrc, String idDist)
+    public float getWeight(String idSrc, String idDest)
     {
         float res = Float.NaN;
         Vertex vSrc = new Vertex(idSrc);
-        Vertex vDist = new Vertex(idDist);
+        Vertex vDest = new Vertex(idDest);
         for(Pair<Vertex, Float> p : vertices.get(vSrc)){
-            if (p.getKey().equals(vDist)) {
+            if (p.getKey().equals(vDest)) {
                 res = p.getValue();
             }
         }
         return res;
     }
+
+    public List<Pair<Vertex, Float>> getAdjVertices(String idSrc)
+    {
+        return vertices.get(new Vertex(idSrc));
+    }
+
 }
