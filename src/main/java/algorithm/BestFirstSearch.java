@@ -40,8 +40,8 @@ public class BestFirstSearch implements Algorithm {
         }
 
         ArrayList<Vertex> path = new ArrayList<>();
-        Vertex dest = new Vertex(idDest);
-        Vertex src = new Vertex(idSrc);
+        Vertex dest = new Vertex(idDest);   //graph.getVertexById(idDest)
+        Vertex src = new Vertex(idSrc);     //same
         Vertex curr = src;
 
         if(idSrc.equals(idDest)){
@@ -57,7 +57,7 @@ public class BestFirstSearch implements Algorithm {
         while(!open.isEmpty()){
             curr = open.poll().getKey();
             close.add(curr);
-            if(curr.equals(dest)){
+            if(curr.equals(dest)){  //curr and dest can't be equal because curr has changed predecessor field. dest was created as new object. it is not from graph. need to change class Graph
                 path = backTrack(src, dest);
                 cache.put(new Pair<>(idSrc, idDest), path);
                 return path;
@@ -81,7 +81,15 @@ public class BestFirstSearch implements Algorithm {
     // TODO: 15.07.2019  
     private ArrayList<Vertex> backTrack(Vertex vSrc, Vertex vDest)
     {
-        return null;
+        ArrayList<Vertex> path = new ArrayList<>();
+        Vertex curr = vDest;
+        while(!curr.equals(vSrc)){
+            path.add(curr);
+            curr = curr.getPredecessor();
+        }
+        Collections.reverse(path);
+
+        return path;
     }
 
     // TODO: 15.07.2019
