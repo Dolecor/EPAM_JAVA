@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-
 public class JPS implements Algorithm {
 
     private Graph graph;
@@ -33,6 +32,7 @@ public class JPS implements Algorithm {
     public ArrayList<Vertex> calculate(String idSrc, String idDest)
     {
         if(isCalculated(idSrc, idDest)) return cache.get(new Pair<>(idSrc, idDest));
+
 
         return null;//It will be changed, when I get how JPS works
     }
