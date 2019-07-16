@@ -17,13 +17,11 @@ public class JPS implements Algorithm {
         setGraph(graph);
     }
 
-    @Override
     public void setGraph(Graph graph) {
         this.cache = new HashMap<>();
         this.graph = graph;
     }
 
-    @Override
     public Boolean isCalculated(String idSrc, String idDest) {
         return cache.containsKey(new Pair<>(idSrc, idDest));
     }

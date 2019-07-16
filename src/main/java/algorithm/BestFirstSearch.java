@@ -20,19 +20,6 @@ public class BestFirstSearch implements Algorithm {
     }
 
     @Override
-    public void setGraph(Graph graph)
-    {
-
-    }
-
-    /**
-     *
-     * @param idSrc identificator of source vertex
-     * @param idDest identificator of destination vertex
-     * @return the list of vertices representing the path from {@code idSrc} to {@code idDest}, or
-     *          {@code null} if there is no path from source vertex to destination vertex
-     */
-    @Override
     public ArrayList<Vertex> calculate(String idSrc, String idDest)
     {
         if(isCalculated(idSrc, idDest)){
@@ -69,10 +56,10 @@ public class BestFirstSearch implements Algorithm {
                 }
             }
         }
+
         return null;
     }
 
-    @Override
     public Boolean isCalculated(String idSrc, String idDest)
     {
         return cache.get(new Pair<>(idSrc, idDest)) != null;
