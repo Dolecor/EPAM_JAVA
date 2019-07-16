@@ -1,0 +1,3 @@
+18:32:11.734 [main] INFO  EPAM_JAVA.App - Logger is working
+18:32:11.737 [main] WARN  EPAM_JAVA.App - Warn
+18:32:11.737 [main] ERROR EPAM_JAVA.App - Error
