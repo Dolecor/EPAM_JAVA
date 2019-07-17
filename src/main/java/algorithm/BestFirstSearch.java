@@ -7,6 +7,12 @@ import util.WeightComparator;
 
 import java.util.*;
 
+/**
+ * The class represents the algorithm for finding the path from
+ * the source vertex to the destination vertex.
+ * Principle: select the next vertex on the principle
+ * of least weight.
+ */
 public class BestFirstSearch implements Algorithm {
 
 
