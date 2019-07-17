@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.BestFirstSearch;
 
 import graph.Graph;
 import graph.Vertex;
@@ -13,16 +13,12 @@ import java.util.*;
  * Principle: select the next vertex on the principle
  * of least distance between current vertex and destination vertex.
  */
-public class BestFirstSearch2 implements Algorithm {
+public class BestFirstSearch2 extends AbstractBestFirstSearch {
 
-    private final Graph graph;
-    private Map<Pair<String, String>, ArrayList<Vertex>> cache;
     private final Map<String, Pair<Integer, Integer>> coords;
-
     public BestFirstSearch2(Graph graph, Map<String, Pair<Integer, Integer>> coords)
     {
-        this.graph = new Graph(graph);
-        this.cache = new HashMap<>();
+        super(graph);
         this.coords = coords;
     }
 
@@ -64,33 +60,6 @@ public class BestFirstSearch2 implements Algorithm {
         }
 
         return null;
-    }
-
-    public Boolean isCalculated(String idSrc, String idDest)
-    {
-        return cache.get(new Pair<>(idSrc, idDest)) != null;
-    }
-
-    private ArrayList<Vertex> backTrack(Vertex vSrc, Vertex vDest)
-    {
-        ArrayList<Vertex> path = new ArrayList<>();
-        Vertex curr = vDest;
-        while(!curr.equals(vSrc)){
-            path.add(curr);
-            curr = curr.getPredecessor();
-        }
-        Collections.reverse(path);
-
-        return path;
-    }
-
-    public Float getPathWeight(ArrayList<Vertex> path)
-    {
-        float res = 0;
-        for(int i = 0; i != path.size() - 2; i++){
-            res+=graph.getWeight(path.get(i), path.get(i+1));
-        }
-        return res;
     }
 
     private Float distanceToDest(Vertex v, Vertex vDest){
