@@ -84,9 +84,12 @@ public class BestFirstSearch implements Algorithm {
         return path;
     }
 
-    // TODO: 15.07.2019
     public Float getPathWeight(ArrayList<Vertex> path)
     {
-        return null;
+        float res = 0;
+        for(int i = 0; i != path.size() - 2; i++){
+            res+=graph.getWeight(path.get(i), path.get(i+1));
+        }
+        return res;
     }
 }
