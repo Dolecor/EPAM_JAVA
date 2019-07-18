@@ -1,6 +1,7 @@
 //this is temporary version for 18.07
 //
 /////////////////////////////////////
+/*
 package algorithm;
 
 import graph.Graph;
@@ -84,3 +85,4 @@ public class Dijkstra implements Algorithm {
     }
 
 }
+ */

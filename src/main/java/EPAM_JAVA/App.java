@@ -6,7 +6,6 @@ package EPAM_JAVA;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class App {
     public String getGreeting() {
         return "Hello world1.";
@@ -15,11 +14,10 @@ public class App {
     public static void main(String[] args) {
 
         Logger logger = LoggerFactory.getLogger(App.class);
-        logger.info("Logger is working");
+        logger.info("\n\n\nLogger is working");
         logger.trace("Trace");
         logger.debug("Debug");
         logger.warn("Warn");
         logger.error("Error");
-
     }
 }
