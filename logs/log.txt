@@ -187,3 +187,15 @@ Logger is working
 Logger is working
 00:16:21.553 [main] WARN  EPAM_JAVA.App - Warn
 00:16:21.553 [main] ERROR EPAM_JAVA.App - Error
+00:33:05.806 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+00:33:05.809 [main] WARN  EPAM_JAVA.App - Warn
+00:33:05.809 [main] ERROR EPAM_JAVA.App - Error
+00:33:09.875 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+00:33:09.878 [main] WARN  EPAM_JAVA.App - Warn
+00:33:09.879 [main] ERROR EPAM_JAVA.App - Error
