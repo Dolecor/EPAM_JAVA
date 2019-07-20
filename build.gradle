@@ -35,6 +35,8 @@ dependencies {
 	
 	compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
 }
 
 application {
