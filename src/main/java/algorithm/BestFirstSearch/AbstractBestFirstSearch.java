@@ -23,16 +23,16 @@ public abstract class AbstractBestFirstSearch implements Algorithm {
 
     public Boolean isCalculated(String idSrc, String idDest)
     {
-        return cache.get(new Pair<>(idSrc, idDest)) != null;
+        return cache.containsKey(new Pair<>(idSrc, idDest));
     }
 
-    protected ArrayList<Vertex> backTrack(Vertex vSrc, Vertex vDest)
+    protected ArrayList<Vertex> backTrack(Vertex vSrc, Vertex vDest,  Map<Vertex, Vertex> cameFrom)
     {
         ArrayList<Vertex> path = new ArrayList<>();
         Vertex curr = vDest;
         while(!curr.equals(vSrc)){
             path.add(curr);
-            curr = curr.getPredecessor();
+            curr = cameFrom.get(curr);
         }
         Collections.reverse(path);
 
