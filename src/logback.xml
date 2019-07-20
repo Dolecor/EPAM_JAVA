@@ -41,10 +41,18 @@
         </encoder>
     </appender>
 
+    <appender name="DB" class="db.Appender">
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <root level="trace">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
         <appender-ref ref="DFILE" />
+        <appender-ref ref="DB" />
     </root>
 
 </configuration>

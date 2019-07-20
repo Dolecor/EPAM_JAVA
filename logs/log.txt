@@ -199,3 +199,24 @@ Logger is working
 Logger is working
 00:33:09.878 [main] WARN  EPAM_JAVA.App - Warn
 00:33:09.879 [main] ERROR EPAM_JAVA.App - Error
+21:30:32.971 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+21:30:32.974 [main] WARN  EPAM_JAVA.App - Warn
+21:30:32.974 [main] ERROR EPAM_JAVA.App - Error
+23:10:16.748 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+23:10:16.757 [main] WARN  EPAM_JAVA.App - Warn
+23:10:16.757 [main] ERROR EPAM_JAVA.App - Error
+23:11:42.287 [main] INFO  EPAM_JAVA.App - Logger is working
+23:11:42.296 [main] WARN  EPAM_JAVA.App - Warn
+23:11:42.297 [main] ERROR EPAM_JAVA.App - Error
+23:13:41.507 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+23:13:41.517 [main] WARN  EPAM_JAVA.App - Warn
+23:13:41.517 [main] ERROR EPAM_JAVA.App - Error

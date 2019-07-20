@@ -71,3 +71,7 @@
 00:16:21.561 [main] DEBUG EPAM_JAVA.App - 10 
 00:33:05.809 [main] DEBUG EPAM_JAVA.App - Debug
 00:33:09.878 [main] DEBUG EPAM_JAVA.App - Debug
+21:30:32.974 [main] DEBUG EPAM_JAVA.App - Debug
+23:10:16.756 [main] DEBUG EPAM_JAVA.App - Debug
+23:11:42.296 [main] DEBUG EPAM_JAVA.App - Debug
+23:13:41.516 [main] DEBUG EPAM_JAVA.App - Debug
