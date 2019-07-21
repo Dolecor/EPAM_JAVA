@@ -1,4 +1,4 @@
-package util;
+package algorithm.BestFirstSearch.util;
 
 import graph.Vertex;
 import javafx.util.Pair;

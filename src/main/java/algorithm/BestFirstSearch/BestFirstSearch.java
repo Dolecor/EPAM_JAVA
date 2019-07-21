@@ -3,7 +3,7 @@ package algorithm.BestFirstSearch;
 import graph.Graph;
 import graph.Vertex;
 import javafx.util.Pair;
-import util.WeightComparator;
+import algorithm.BestFirstSearch.util.WeightComparator;
 
 import java.util.*;
 
@@ -38,26 +38,26 @@ public class BestFirstSearch extends AbstractBestFirstSearch/*implements Algorit
             return path;
         }
 
-        List<Vertex> close = new ArrayList<>();
+        Map<Vertex, Vertex> cameFrom = new HashMap<>();
         PriorityQueue<Pair<Vertex, Float>> open = new PriorityQueue<>(new WeightComparator());
         open.add(new Pair<>(curr, -1.0f));
+        cameFrom.put(curr, null);
 
-        while(!open.isEmpty()){
+        while(!open.isEmpty()) {
             curr = open.poll().getKey();
-            close.add(curr);
             if(curr.equals(dest)){
-                path = backTrack(src, dest);
+                path = backTrack(src, dest, cameFrom);
                 cache.put(new Pair<>(idSrc, idDest), path);
-                return path;
+                break;
             }
-            for(Pair<Vertex, Float> p : graph.getAdjVertices(curr)){
-                if(!close.contains(p.getKey()) && p.getKey().getPredecessor() == null) {
-                    open.add(p);
-                    p.getKey().setPredecessor(curr);
+            for(Pair<Vertex, Float> adj : graph.getAdjVertices(curr)) {
+                if(cameFrom.get(adj.getKey()) == null){
+                    open.add(adj);
+                    cameFrom.put(adj.getKey(), curr);
                 }
             }
         }
 
-        return null;
+        return path;
     }
 }

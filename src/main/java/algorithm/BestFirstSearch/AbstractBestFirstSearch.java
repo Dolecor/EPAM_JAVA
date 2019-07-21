@@ -23,27 +23,33 @@ public abstract class AbstractBestFirstSearch implements Algorithm {
 
     public Boolean isCalculated(String idSrc, String idDest)
     {
-        return cache.get(new Pair<>(idSrc, idDest)) != null;
+        return cache.containsKey(new Pair<>(idSrc, idDest));
     }
 
-    protected ArrayList<Vertex> backTrack(Vertex vSrc, Vertex vDest)
+    protected ArrayList<Vertex> backTrack(Vertex vSrc, Vertex vDest,  Map<Vertex, Vertex> cameFrom)
     {
         ArrayList<Vertex> path = new ArrayList<>();
         Vertex curr = vDest;
-        while(!curr.equals(vSrc)){
+        while(curr != null){
             path.add(curr);
-            curr = curr.getPredecessor();
+            curr = cameFrom.get(curr);
         }
         Collections.reverse(path);
 
         return path;
     }
 
+    @Override
     public Float getPathWeight(ArrayList<Vertex> path)
     {
         float res = 0;
-        for(int i = 0; i != path.size() - 2; i++){
-            res+=graph.getWeight(path.get(i), path.get(i+1));
+        if(path.size() < 1){
+            res = -1.0f;
+        }
+        else if(path.size() > 1) {
+            for(int i = 0; i != path.size() - 1; i++){
+                res+=graph.getWeight(path.get(i), path.get(i+1));
+            }
         }
         return res;
     }
