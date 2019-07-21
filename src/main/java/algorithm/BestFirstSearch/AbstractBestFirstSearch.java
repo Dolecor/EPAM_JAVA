@@ -30,7 +30,7 @@ public abstract class AbstractBestFirstSearch implements Algorithm {
     {
         ArrayList<Vertex> path = new ArrayList<>();
         Vertex curr = vDest;
-        while(!curr.equals(vSrc)){
+        while(curr != null){
             path.add(curr);
             curr = cameFrom.get(curr);
         }
@@ -39,11 +39,17 @@ public abstract class AbstractBestFirstSearch implements Algorithm {
         return path;
     }
 
+    @Override
     public Float getPathWeight(ArrayList<Vertex> path)
     {
         float res = 0;
-        for(int i = 0; i != path.size() - 2; i++){
-            res+=graph.getWeight(path.get(i), path.get(i+1));
+        if(path.size() < 1){
+            res = -1.0f;
+        }
+        else if(path.size() > 1) {
+            for(int i = 0; i != path.size() - 2; i++){
+                res+=graph.getWeight(path.get(i), path.get(i+1));
+            }
         }
         return res;
     }
