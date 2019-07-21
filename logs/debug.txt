@@ -75,3 +75,16 @@
 23:10:16.756 [main] DEBUG EPAM_JAVA.App - Debug
 23:11:42.296 [main] DEBUG EPAM_JAVA.App - Debug
 23:13:41.516 [main] DEBUG EPAM_JAVA.App - Debug
+17:30:26.788 [main] DEBUG EPAM_JAVA.App - Debug
+17:34:15.803 [main] DEBUG EPAM_JAVA.App - Debug
+17:34:39.159 [main] DEBUG EPAM_JAVA.App - Debug
+17:36:03.117 [main] DEBUG EPAM_JAVA.App - Debug
+17:36:21.590 [main] DEBUG EPAM_JAVA.App - Debug
+17:36:40.299 [main] DEBUG EPAM_JAVA.App - Debug
+17:37:05.667 [main] DEBUG EPAM_JAVA.App - Debug
+17:37:46.337 [main] DEBUG EPAM_JAVA.App - Debug
+17:38:24.240 [main] DEBUG EPAM_JAVA.App - Debug
+17:38:35.494 [main] DEBUG EPAM_JAVA.App - Debug
+17:38:49.741 [main] DEBUG EPAM_JAVA.App - Debug
+17:39:08.912 [main] DEBUG EPAM_JAVA.App - Debug
+17:44:11.123 [main] DEBUG EPAM_JAVA.App - Debug

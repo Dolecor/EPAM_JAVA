@@ -13,6 +13,8 @@ public class DB {
     public DB(){
 
         try {
+            Class.forName("org.postgresql.Driver");
+
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
 
             if(connection != null)
@@ -23,6 +25,12 @@ public class DB {
                 preparedStatement = connection.prepareStatement(sql);
             }
         } catch (SQLException e) {
+            System.out.println("Connection Failed");
+            e.printStackTrace();
+            return;
+        }
+        catch (ClassNotFoundException e)
+        {
             System.out.println("Connection Failed");
             e.printStackTrace();
             return;

@@ -220,3 +220,81 @@ Logger is working
 Logger is working
 23:13:41.517 [main] WARN  EPAM_JAVA.App - Warn
 23:13:41.517 [main] ERROR EPAM_JAVA.App - Error
+17:30:26.774 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:30:26.789 [main] WARN  EPAM_JAVA.App - Warn
+17:30:26.789 [main] ERROR EPAM_JAVA.App - Error
+17:34:15.793 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:34:15.804 [main] WARN  EPAM_JAVA.App - Warn
+17:34:15.805 [main] ERROR EPAM_JAVA.App - Error
+17:34:39.149 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:34:39.159 [main] WARN  EPAM_JAVA.App - Warn
+17:34:39.160 [main] ERROR EPAM_JAVA.App - Error
+17:36:03.115 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:36:03.117 [main] WARN  EPAM_JAVA.App - Warn
+17:36:03.117 [main] ERROR EPAM_JAVA.App - Error
+17:36:21.588 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:36:21.590 [main] WARN  EPAM_JAVA.App - Warn
+17:36:21.590 [main] ERROR EPAM_JAVA.App - Error
+17:36:40.296 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:36:40.300 [main] WARN  EPAM_JAVA.App - Warn
+17:36:40.300 [main] ERROR EPAM_JAVA.App - Error
+17:37:05.665 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:37:05.667 [main] WARN  EPAM_JAVA.App - Warn
+17:37:05.667 [main] ERROR EPAM_JAVA.App - Error
+17:37:46.335 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:37:46.337 [main] WARN  EPAM_JAVA.App - Warn
+17:37:46.337 [main] ERROR EPAM_JAVA.App - Error
+17:38:24.238 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:38:24.240 [main] WARN  EPAM_JAVA.App - Warn
+17:38:24.240 [main] ERROR EPAM_JAVA.App - Error
+17:38:35.492 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:38:35.494 [main] WARN  EPAM_JAVA.App - Warn
+17:38:35.494 [main] ERROR EPAM_JAVA.App - Error
+17:38:49.731 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:38:49.742 [main] WARN  EPAM_JAVA.App - Warn
+17:38:49.744 [main] ERROR EPAM_JAVA.App - Error
+17:39:08.910 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:39:08.912 [main] WARN  EPAM_JAVA.App - Warn
+17:39:08.912 [main] ERROR EPAM_JAVA.App - Error
+17:44:11.115 [main] INFO  EPAM_JAVA.App - 
+
+
+Logger is working
+17:44:11.124 [main] WARN  EPAM_JAVA.App - Warn
+17:44:11.125 [main] ERROR EPAM_JAVA.App - Error
