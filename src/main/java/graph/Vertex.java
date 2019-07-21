@@ -5,6 +5,7 @@ import lombok.Data;
  * has properties <b>id</b> and <b>predecessor</b>
  * @autor Dmitry Dolenko
  * */
+@Data
 public class Vertex {
     private final String id;
     private Vertex predecessor;
