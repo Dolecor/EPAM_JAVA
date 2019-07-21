@@ -48,7 +48,7 @@ public class BestFirstSearch extends AbstractBestFirstSearch/*implements Algorit
             if(curr.equals(dest)){
                 path = backTrack(src, dest, cameFrom);
                 cache.put(new Pair<>(idSrc, idDest), path);
-                return path;
+                break;
             }
             for(Pair<Vertex, Float> adj : graph.getAdjVertices(curr)) {
                 if(cameFrom.get(adj.getKey()) == null){
@@ -58,6 +58,6 @@ public class BestFirstSearch extends AbstractBestFirstSearch/*implements Algorit
             }
         }
 
-        return null;
+        return path;
     }
 }

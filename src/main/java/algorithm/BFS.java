@@ -67,7 +67,7 @@ public class BFS implements Algorithm {
 
                         Collections.reverse(res);
 
-                        return res;
+                        break;
                     }
 
                     else {
@@ -83,7 +83,7 @@ public class BFS implements Algorithm {
 
         }
 
-        return null;
+        return res;
     }
 
     @Override

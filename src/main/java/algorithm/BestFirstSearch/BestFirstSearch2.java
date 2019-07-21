@@ -49,7 +49,7 @@ public class BestFirstSearch2 extends AbstractBestFirstSearch {
             if(curr.equals(dest)){
                 path = backTrack(src, dest, cameFrom);
                 cache.put(new Pair<>(idSrc, idDest), path);
-                return path;
+                break;
             }
             for(Pair<Vertex, Float> adj : graph.getAdjVertices(curr)) {
                 if(cameFrom.get(adj.getKey()) == null){
@@ -59,7 +59,7 @@ public class BestFirstSearch2 extends AbstractBestFirstSearch {
             }
         }
 
-        return null;
+        return path;
     }
 
     private Float distanceToDest(Vertex v, Vertex vDest){
