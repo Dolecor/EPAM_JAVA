@@ -5,6 +5,10 @@ import lombok.Getter;
 
 import java.util.*;
 
+/** class to create weighted digraph
+ * based on class Graph {@link public class Graph{...}}
+ * @autor Dmitry Dolenko
+ */
 public class WeightedDigraph implements IGraph<BaseVertex> {
 
     @Getter
@@ -12,11 +16,15 @@ public class WeightedDigraph implements IGraph<BaseVertex> {
     @Getter
     private Map<BaseVertex, ArrayList<Pair<BaseVertex, Float>>> edges;
 
+    /** basic constructor without parameters */
     public WeightedDigraph(){
         vertices = new HashSet<>();
         edges = new HashMap<>();
     }
 
+    /** constructor, which allows to create new object with
+     * @param g custom weighted graph
+     */
     public WeightedDigraph(WeightedDigraph g)
     {
         this();
