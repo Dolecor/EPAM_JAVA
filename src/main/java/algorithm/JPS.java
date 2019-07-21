@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+/*
 public class JPS implements Algorithm {
 
     private Graph graph;
@@ -34,4 +35,9 @@ public class JPS implements Algorithm {
 
         return null;//It will be changed, when I get how JPS works
     }
-}
+
+    @Override
+    public Float getPathWeight(ArrayList<Vertex> path) {
+        return null;
+    }
+}*/

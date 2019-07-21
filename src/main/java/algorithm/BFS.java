@@ -30,12 +30,20 @@ public class BFS implements Algorithm {
         if(graph.getVertexById(idSrc) == null) return null;
         if(graph.getVertexById(idDest) == null) return null;
 
+
+        ArrayList<Vertex> res = new ArrayList<>();
         HashMap<Vertex, Vertex> visited = new HashMap<>();
         LinkedList<Vertex> stack = new LinkedList<>();
 
         Vertex tVertex = graph.getVertexById(idSrc);
         visited.put(tVertex, null);
         stack.push(tVertex);
+
+        if(idSrc.equals(idDest)){
+            res.add(tVertex);
+            cache.put(new Pair<>(idSrc, idDest), res);
+            return res;
+        }
 
         while(!stack.isEmpty()) {
 
@@ -48,7 +56,6 @@ public class BFS implements Algorithm {
             for (Pair<Vertex, Float> pair : graph.getAdjVertices(tVertex)) {
                 if (visited.putIfAbsent(pair.getKey(), tVertex) == null) {
                     if(pair.getKey().getId().equals(idDest)) {
-                        ArrayList<Vertex> res = new ArrayList<>();
                         tVertex = pair.getKey();
 
                         while(!tVertex.getId().equals(idSrc)){
@@ -77,6 +84,21 @@ public class BFS implements Algorithm {
         }
 
         return null;
+    }
+
+    @Override
+    public Float getPathWeight(ArrayList<Vertex> path)
+    {
+        float res = 0;
+        if(path.size() < 1){
+            res = -1.0f;
+        }
+        else if(path.size() > 1) {
+            for(int i = 0; i != path.size() - 2; i++){
+                res+=graph.getWeight(path.get(i), path.get(i+1));
+            }
+        }
+        return res;
     }
 }
 
