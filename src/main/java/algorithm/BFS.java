@@ -6,21 +6,37 @@ import graph.*;
 import javafx.util.Pair;
 
 import java.util.*;
-
+/** class - realisation of algorithm BestFistSearch
+ * has properties <b>graph</b> and <b>cache</b>.
+ */
 public class BFS implements Algorithm {
 
     private final Graph graph;
     private Map<Pair<String, String>, ArrayList<Vertex>> cache;
 
+    /** constructor, which allows to create new object with
+     * @param graph custom graph
+     */
     public BFS(Graph graph) {
         this.graph = new Graph(graph);
         this.cache = new HashMap<>();
     }
 
+    /** funtion for verification
+     * @param idSrc name of source vertex
+     * @param idDest name of destination vertex
+     * @return {@code true} if there is already counted path between vertexes
+     */
     private Boolean isCalculated(String idSrc, String idDest) {
         return cache.containsKey(new Pair<>(idSrc, idDest));
     }
 
+    /** main algo function, which finds best path
+     * @param idSrc name of source vertex
+     * @param idDest name of destination vertex
+     * @return {@code res} where res keeps value
+     * @return {@code null} if graph don't contain one of given vertexes
+     * */
     @Override
     public ArrayList<Vertex> calculate(String idSrc, String idDest) {
         if(isCalculated(idSrc, idDest)) {
@@ -29,7 +45,6 @@ public class BFS implements Algorithm {
 
         if(graph.getVertexById(idSrc) == null) return null;
         if(graph.getVertexById(idDest) == null) return null;
-
 
         ArrayList<Vertex> res = new ArrayList<>();
         HashMap<Vertex, Vertex> visited = new HashMap<>();
@@ -64,7 +79,6 @@ public class BFS implements Algorithm {
                         }
 
                         res.add(tVertex);
-
                         Collections.reverse(res);
 
                         break;
@@ -80,12 +94,13 @@ public class BFS implements Algorithm {
             if(!newChild) {
                 stack.pop();
             }
-
         }
-
         return res;
     }
 
+    /** additional agorithm function
+     * @param path massive of edges
+     */
     @Override
     public Float getPathWeight(ArrayList<Vertex> path)
     {
