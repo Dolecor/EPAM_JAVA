@@ -6,7 +6,7 @@ import graph.*;
 import javafx.util.Pair;
 
 import java.util.*;
-/** class - realisation of algorithm BestFistSearch
+/** class - realisation of algorithm BreadthFistSearch
  * has properties <b>graph</b> and <b>cache</b>.
  */
 public class BFS implements Algorithm {
