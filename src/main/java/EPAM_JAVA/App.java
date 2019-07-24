@@ -3,8 +3,11 @@
  */
 package EPAM_JAVA;
 
+import AppInterface.Window;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 public class App {
     public String getGreeting() {
@@ -19,5 +22,11 @@ public class App {
         logger.debug("Debug");
         logger.warn("Warn");
         logger.error("Error");
+
+        try {
+            Window.runApplication();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
