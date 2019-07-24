@@ -176,7 +176,7 @@ public class AlgorithmTest {
         coord.put("G", new Pair<>(3, 3));
         coord.put("H", new Pair<>(3, 1));
         coord.put("I", new Pair<>(3, 0));
-    }
+}
 
     protected static boolean isListEquals(List<Vertex> list1, List<String> list2){
         for(int i = 0; i < list1.size(); ++i){
