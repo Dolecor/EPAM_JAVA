@@ -63,7 +63,7 @@ public class Panel extends JPanel implements ActionListener{
         image = new BufferedImage(Window.width, Window.height, BufferedImage.TYPE_INT_RGB);
 
         g = (Graphics2D) image.getGraphics();
-        background = new ImageIcon("resources/images/Фон.jpg").getImage();
+        background = new ImageIcon("resources/imags/background.jpg").getImage();
 
         lineColor = new LineColor();
         stations = new ArrayList<>();
