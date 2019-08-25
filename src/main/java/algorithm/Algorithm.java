@@ -11,7 +11,7 @@ public interface Algorithm {
      * @return the list of vertices representing the path from {@code idSrc} to {@code idDest}, or
      *          empty list if there is no path from source vertex to destination vertex
      */
-    ArrayList<Vertex> calculate(String idSrc, String idDest);
+    ArrayList<BaseVertex> calculate(Integer idSrc, Integer idDest);
 
     /**
      *
@@ -20,5 +20,5 @@ public interface Algorithm {
      *          {@code 0.0f} if path contains one vertex, or
      *          positive float number otherwise.
      */
-    Float getPathWeight(ArrayList<Vertex> path);
+    Float getPathWeight(ArrayList<BaseVertex> path);
 }

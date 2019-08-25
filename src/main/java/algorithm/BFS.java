@@ -11,14 +11,14 @@ import java.util.*;
  */
 public class BFS implements Algorithm {
 
-    private final Graph graph;
-    private Map<Pair<String, String>, ArrayList<Vertex>> cache;
+    private final WeightedDigraph graph;
+    private Map<Pair<Integer, Integer>, ArrayList<BaseVertex>> cache;
 
     /** constructor, which allows to create new object with
      * @param graph custom graph
      */
-    public BFS(Graph graph) {
-        this.graph = new Graph(graph);
+    public BFS(WeightedDigraph graph) {
+        this.graph = new WeightedDigraph(graph);
         this.cache = new HashMap<>();
     }
 
@@ -27,7 +27,7 @@ public class BFS implements Algorithm {
      * @param idDest name of destination vertex
      * @return {@code true} if there is already counted path between vertexes
      */
-    private Boolean isCalculated(String idSrc, String idDest) {
+    private Boolean isCalculated(Integer idSrc, Integer idDest) {
         return cache.containsKey(new Pair<>(idSrc, idDest));
     }
 
@@ -38,7 +38,7 @@ public class BFS implements Algorithm {
      * @return empty list if there is no path from source vertex to destination vertex
      * */
     @Override
-    public ArrayList<Vertex> calculate(String idSrc, String idDest) {
+    public ArrayList<BaseVertex> calculate(Integer idSrc, Integer idDest) {
         if(isCalculated(idSrc, idDest)) {
             return cache.get(new Pair<>(idSrc, idDest));
         }
@@ -46,11 +46,11 @@ public class BFS implements Algorithm {
         if(graph.getVertexById(idSrc) == null) return null;
         if(graph.getVertexById(idDest) == null) return null;
 
-        ArrayList<Vertex> res = new ArrayList<>();
-        HashMap<Vertex, Vertex> visited = new HashMap<>();
-        LinkedList<Vertex> stack = new LinkedList<>();
+        ArrayList<BaseVertex> res = new ArrayList<>();
+        HashMap<BaseVertex, BaseVertex> visited = new HashMap<>();
+        LinkedList<BaseVertex> stack = new LinkedList<>();
 
-        Vertex tVertex = graph.getVertexById(idSrc);
+        BaseVertex tVertex = graph.getVertexById(idSrc);
         visited.put(tVertex, null);
         stack.push(tVertex);
 
@@ -64,11 +64,11 @@ public class BFS implements Algorithm {
 
             tVertex = stack.element();
 
-            List<Pair<Vertex, Float>> vList = graph.getAdjVertices(tVertex.getId());
+            List<Pair<BaseVertex, Float>> vList = graph.getAdjVerticesWithWeights(tVertex.getId());
 
             Boolean newChild = false;
 
-            for (Pair<Vertex, Float> pair : graph.getAdjVertices(tVertex)) {
+            for (Pair<BaseVertex, Float> pair : graph.getAdjVerticesWithWeights(tVertex.getId())) {
                 if (visited.putIfAbsent(pair.getKey(), tVertex) == null) {
                     if(pair.getKey().getId().equals(idDest)) {
                         tVertex = pair.getKey();
@@ -105,7 +105,7 @@ public class BFS implements Algorithm {
      *          positive float number otherwise.
      */
     @Override
-    public Float getPathWeight(ArrayList<Vertex> path)
+    public Float getPathWeight(ArrayList<BaseVertex> path)
     {
         float res = 0;
         if(path.size() < 1){
@@ -113,46 +113,9 @@ public class BFS implements Algorithm {
         }
         else if(path.size() > 1) {
             for(int i = 0; i != path.size() - 1; i++){
-                res+=graph.getWeight(path.get(i), path.get(i+1));
+                res+=graph.getWeight(path.get(i).getId(), path.get(i+1).getId());
             }
         }
         return res;
     }
 }
-
-//Simple test of BFS (Put in App.Java)
-        /*
-        Graph graph = new Graph();
-        graph.addVertex("1");
-        graph.addVertex("2");
-        graph.addVertex("3");
-        graph.addVertex("4");
-        graph.addVertex("5");
-        graph.addVertex("6");
-        graph.addVertex("7");
-        graph.addVertex("8");
-        graph.addVertex("9");
-        graph.addVertex("10");
-
-        graph.setWeight("1", "2", 9.0f);
-        graph.setWeight("1", "6", 10.0f);
-        graph.setWeight("2", "3", 2.0f);
-        graph.setWeight("2", "4", 4.0f);
-        graph.setWeight("2", "10", 4.0f);
-        graph.setWeight("6", "8", 2.0f);
-        graph.setWeight("8", "7", 3.0f);
-        graph.setWeight("7", "9", 2.0f);
-        graph.setWeight("3", "5", 1.0f);
-        graph.setWeight("5", "10", 1.0f);
-        graph.setWeight("4", "10", 1.0f);
-
-        //graph.setWeight("9", "10", 2.0f);
-
-        BFS bfs = new BFS(graph);
-
-        ArrayList<Vertex> arr = bfs.calculate("1", "10");
-
-        for(Vertex var : arr) {
-            logger.debug(var.getId() + " ");
-        }
-         */

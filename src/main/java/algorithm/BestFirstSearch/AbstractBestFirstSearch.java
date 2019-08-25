@@ -1,8 +1,7 @@
 package algorithm.BestFirstSearch;
 
 import algorithm.Algorithm;
-import graph.Graph;
-import graph.Vertex;
+import graph.*;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -12,24 +11,24 @@ import java.util.Map;
 
 public abstract class AbstractBestFirstSearch implements Algorithm {
 
-    protected final Graph graph;
-    protected Map<Pair<String, String>, ArrayList<Vertex>> cache;
+    protected final WeightedDigraph graph;
+    protected Map<Pair<Integer, Integer>, ArrayList<BaseVertex>> cache;
 
-    public AbstractBestFirstSearch(Graph graph)
+    public AbstractBestFirstSearch(WeightedDigraph graph)
     {
-        this.graph = new Graph(graph);
+        this.graph = new WeightedDigraph(graph);
         this.cache = new HashMap<>();
     }
 
-    public Boolean isCalculated(String idSrc, String idDest)
+    public Boolean isCalculated(Integer idSrc, Integer idDest)
     {
         return cache.containsKey(new Pair<>(idSrc, idDest));
     }
 
-    protected ArrayList<Vertex> backTrack(Vertex vSrc, Vertex vDest,  Map<Vertex, Vertex> cameFrom)
+    protected ArrayList<BaseVertex> backTrack(BaseVertex vSrc, BaseVertex vDest, Map<BaseVertex, BaseVertex> cameFrom)
     {
-        ArrayList<Vertex> path = new ArrayList<>();
-        Vertex curr = vDest;
+        ArrayList<BaseVertex> path = new ArrayList<>();
+        BaseVertex curr = vDest;
         while(curr != null){
             path.add(curr);
             curr = cameFrom.get(curr);
@@ -40,7 +39,7 @@ public abstract class AbstractBestFirstSearch implements Algorithm {
     }
 
     @Override
-    public Float getPathWeight(ArrayList<Vertex> path)
+    public Float getPathWeight(ArrayList<BaseVertex> path)
     {
         float res = 0;
         if(path.size() < 1){
@@ -48,7 +47,7 @@ public abstract class AbstractBestFirstSearch implements Algorithm {
         }
         else if(path.size() > 1) {
             for(int i = 0; i != path.size() - 1; i++){
-                res+=graph.getWeight(path.get(i), path.get(i+1));
+                res+=graph.getWeight(path.get(i).getId(), path.get(i+1).getId());
             }
         }
         return res;

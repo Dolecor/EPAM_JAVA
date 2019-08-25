@@ -1,7 +1,8 @@
 package algorithm.BestFirstSearch;
 
-import graph.Graph;
+import graph.BaseVertex;
 import graph.Vertex;
+import graph.WeightedDigraph;
 import javafx.util.Pair;
 import algorithm.BestFirstSearch.util.WeightComparator;
 
@@ -13,24 +14,24 @@ import java.util.*;
  * Principle: select the next vertex on the principle
  * of least weight.
  */
-public class BestFirstSearch extends AbstractBestFirstSearch/*implements Algorithm*/ {
+public class BestFirstSearch extends AbstractBestFirstSearch {
 
-    public BestFirstSearch(Graph graph)
+    public BestFirstSearch(WeightedDigraph graph)
     {
         super(graph);
     }
 
     @Override
-    public ArrayList<Vertex> calculate(String idSrc, String idDest)
+    public ArrayList<BaseVertex> calculate(Integer idSrc, Integer idDest)
     {
         if(isCalculated(idSrc, idDest)){
             return cache.get(new Pair<>(idSrc, idDest));
         }
 
-        ArrayList<Vertex> path = new ArrayList<>();
-        Vertex dest = graph.getVertexById(idDest);
-        Vertex src = graph.getVertexById(idSrc);
-        Vertex curr = src;
+        ArrayList<BaseVertex> path = new ArrayList<>();
+        BaseVertex dest = graph.getVertexById(idDest);
+        BaseVertex src = graph.getVertexById(idSrc);
+        BaseVertex curr = src;
 
         if(idSrc.equals(idDest)){
             path.add(curr);
@@ -38,8 +39,8 @@ public class BestFirstSearch extends AbstractBestFirstSearch/*implements Algorit
             return path;
         }
 
-        Map<Vertex, Vertex> cameFrom = new HashMap<>();
-        PriorityQueue<Pair<Vertex, Float>> open = new PriorityQueue<>(new WeightComparator());
+        Map<BaseVertex, BaseVertex> cameFrom = new HashMap<>();
+        PriorityQueue<Pair<BaseVertex, Float>> open = new PriorityQueue<>(new WeightComparator());
         open.add(new Pair<>(curr, -1.0f));
         cameFrom.put(curr, null);
 
@@ -47,10 +48,10 @@ public class BestFirstSearch extends AbstractBestFirstSearch/*implements Algorit
             curr = open.poll().getKey();
             if(curr.equals(dest)){
                 path = backTrack(src, dest, cameFrom);
-                cache.put(new Pair<>(idSrc, idDest), path);
+                cache.put(new Pair<Integer, Integer>(idSrc, idDest), path);
                 break;
             }
-            for(Pair<Vertex, Float> adj : graph.getAdjVertices(curr)) {
+            for(Pair<BaseVertex, Float> adj : graph.getAdjVerticesWithWeights(curr.getId())) {
                 if(cameFrom.get(adj.getKey()) == null){
                     open.add(adj);
                     cameFrom.put(adj.getKey(), curr);

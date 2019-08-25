@@ -1,3 +1,4 @@
+/*
 package algorithm.BestFirstSearch;
 
 import algorithm.AlgorithmTest;
@@ -101,4 +102,4 @@ class BestFirstSearch2Test extends AlgorithmTest {
 
         assertTrue(isListEquals(res, expectedSequence));
     }
-}
+}*/
